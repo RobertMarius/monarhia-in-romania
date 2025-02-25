@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site-uri Încorporate cu Bara de Navigare Imagini</title>
+    <style>
+        /* Elimină marginile și padding-ul implicit */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            overflow: hidden; /* Ascunde scroll-ul implicit */
+        }
+
+        /* Container pentru iframe-uri */
+        #iframe-wrapper {
+            width: 100%;
+            height: 100vh; /* Ocupă întreaga înălțime a ecranului */
+            overflow-y: auto; /* Permite scroll doar în containerul principal */
+        }
+
+        /* Stil pentru fiecare iframe */
+        .iframe-container {
+            width: 100%;
+            height: 100vh; /* Fiecare iframe ocupă întreaga înălțime a ecranului */
+            border: none; /* Elimină bordura */
+            display: block; /* Asigură că iframe-urile sunt afișate corect */
+        }
+
+        /* Butonul pentru afișarea barei de navigare */
+        #nav-toggle {
+            width: 50px;
+            height: 50px;
+            background-color: #34495e; /* Culoare buton gri închis */
+            border: none;
+            border-radius: 50%; /* Buton rotund */
+            cursor: pointer;
+            color: white; /* Text alb */
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Poziționat fix */
+            bottom: 20px; /* La 20px de marginea de jos */
+            left: 50%; /* Centrat orizontal */
+            transform: translateX(-50%); /* Centrare precisă */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Umbră ușoară */
+            z-index: 1000; /* Asigură că butonul este deasupra */
+            transition: all 0.3s ease; /* Animație pentru morphing */
+        }
+
+        #nav-toggle:hover {
+            background-color: #40576b; /* Culoare buton la hover */
+        }
+
+        /* Bara de navigare compactă */
+        .navigation-bar {
+            background-color: #2c3e50; /* Culoare gri închis */
+            padding: 10px;
+            display: inline-flex; /* Lățimea se ajustează la conținut */
+            justify-content: center;
+            gap: 10px; /* Spațiu între butoane */
+            position: fixed; /* Bara rămâne fixă */
+            bottom: 20px; /* Poziționată puțin deasupra marginii de jos */
+            left: 50%; /* Centrată orizontal */
+            transform: translateX(-50%); /* Centrare precisă */
+            border-radius: 25px; /* Colțuri rotunde */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Umbră ușoară */
+            opacity: 0; /* Inițial invizibilă */
+            visibility: hidden; /* Ascunde bara */
+            transition: all 0.3s ease; /* Animație pentru morphing */
+            z-index: 999; /* Sub buton */
+            clip-path: circle(25px at center); /* Inițial, forma de cerc */
+        }
+
+        /* Stil pentru bara de navigare când este vizibilă */
+        .navigation-bar.visible {
+            opacity: 1;
+            visibility: visible;
+            clip-path: circle(100% at center); /* Formă completă */
+        }
+
+        /* Butoanele din bara de navigare */
+        .navigation-bar button {
+            width: 50px;
+            height: 50px;
+            background-color: #34495e; /* Culoare buton gri închis */
+            border: none;
+            border-radius: 50%; /* Butoane rotunde */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0; /* Elimină padding-ul implicit */
+        }
+
+        .navigation-bar button img {
+            width: 100%; /* Imaginea ocupă întreg butonul */
+            height: 100%;
+            border-radius: 50%; /* Imagine rotundă */
+            object-fit: cover; /* Asigură că imaginea se potrivește în buton */
+        }
+
+        .navigation-bar button:hover {
+            background-color: #40576b; /* Culoare buton la hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container pentru iframe-uri -->
+    <div id="iframe-wrapper">
+        <iframe class="iframe-container" src="main.html"></iframe>
+        <iframe class="iframe-container" src="Context.html"></iframe>
+        <iframe class="iframe-container" src="https://www.exemplu3.com"></iframe>
+        <!-- Adaugă mai multe iframe-uri aici -->
+    </div>
+
+    <!-- Butonul pentru afișarea barei de navigare -->
+    <button id="nav-toggle">☰</button>
+
+    <!-- Bara de navigare compactă -->
+    <div class="navigation-bar">
+        <button onclick="scrollToIframe(0)">
+            <img src="poze/SteagulMonarhiei (1).png" alt="Imagine 1"> <!-- Înlocuiește cu calea imaginii tale -->
+        </button>
+        <button onclick="scrollToIframe(1)">
+            <img src="imagine2.jpg" alt="Imagine 2"> <!-- Înlocuiește cu calea imaginii tale -->
+        </button>
+        <button onclick="scrollToIframe(2)">
+            <img src="imagine3.jpg" alt="Imagine 3"> <!-- Înlocuiește cu calea imaginii tale -->
+        </button>
+        <!-- Adaugă mai multe butoane aici -->
+    </div>
+
+    <script>
+        // Funcție pentru a face scroll la un iframe specific
+        function scrollToIframe(index) {
+            const iframes = document.querySelectorAll(".iframe-container");
+            if (iframes[index]) {
+                iframes[index].scrollIntoView({ behavior: "smooth" }); // Scroll lin
+            }
+            hideNavigationBar(); // Ascunde bara după click
+        }
+
+        // Funcție pentru a afișa/ascunde bara de navigare
+        const navToggle = document.getElementById("nav-toggle");
+        const navigationBar = document.querySelector(".navigation-bar");
+
+        navToggle.addEventListener("click", () => {
+            navigationBar.classList.toggle("visible");
+            navToggle.style.display = "none"; // Ascunde butonul când bara este vizibilă
+        });
+
+        // Funcție pentru a ascunde bara de navigare
+        function hideNavigationBar() {
+            navigationBar.classList.remove("visible");
+            navToggle.style.display = "flex"; // Afișează butonul când bara este ascunsă
+        }
+
+        // Ascunde bara de navigare la scroll
+        window.addEventListener("scroll", hideNavigationBar);
+
+        // Ascunde bara de navigare la click în afara barei
+        document.addEventListener("click", (event) => {
+            if (!navigationBar.contains(event.target) && !navToggle.contains(event.target)) {
+                hideNavigationBar();
+            }
+        });
+    </script>
+</body>
+</html>

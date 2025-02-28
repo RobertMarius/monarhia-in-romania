@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarhia în România - Context Istoric</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .navigation-bar {
+            background-color: #2c3e50;
+            padding: 10px;
+            display: inline-flex;
+            justify-content: center;
+            gap: 10px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            clip-path: circle(25px at center);
+        }
+
+        .navigation-bar.visible {
+            opacity: 1;
+            visibility: visible;
+            clip-path: circle(100% at center);
+        }
+
+        .navigation-bar button {
+            width: 50px;
+            height: 50px;
+            background-color: #34495e;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .navigation-bar button img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .navigation-bar button:hover {
+            background-color: #40576b;
+        }
+
+        #nav-toggle {
+            width: 50px;
+            height: 50px;
+            background-color: #34495e;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        #nav-toggle:hover {
+            background-color: #40576b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #3e3e3e;
+            background-color: #f4e9d8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 0; /* Adăugăm un top margin pentru a nu se suprapune titlurile cu navbar */
+            padding: 20px;
+        }
+        /* Stiluri pentru prima parte (imagine de fundal și titlu) */
+        .background-image {
+            background-image: url('poze/SteagulMonarhiei\ \(1\).png'); /* Înlocuiește cu calea corectă către imagine */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Înălțimea întregului ecran */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .title-box {
+            background-color: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru titlu */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #gradient-title {
+            background: linear-gradient(
+                to right,
+                blue 0%,
+                blue 20%,
+                yellow 20%,
+                yellow 40%,
+                red 40%,
+                red 60%,
+                yellow 60%,
+                yellow 80%,
+                blue 80%,
+                blue 100%
+            );
+            background-size: 400% 100%; /* Mărim dimensiunea pentru a acoperi toate culorile */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientAnimation 15s linear infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        /* Stiluri pentru a doua parte (context istoric) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #3e3e3e;
+            background-color: #f4e9d8; /* Culoare crem închis, asemănătoare hârtiei vechi */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #5a3e36; /* Culoare maronie pentru titlu */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #5a3e36;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center; /* Centrare titlu */
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #5a3e36;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: center; /* Centrare subtitlu */
+        }
+
+        .content {
+            display: flex;
+            gap: 20px; /* Spațiu între coloane */
+        }
+
+        .text {
+            width: 50%; /* Textul ocupă 50% din lățime */
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 0 auto; /* Centrare text */
+        }
+
+        .images {
+            width: 50%; /* Imagini ocupă 50% din lățime */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Spațiu între imagini */
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: #5a3e36;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 40px;
+        }
+
+        /* Stiluri pentru secțiunea "CAROL I" */
+        .carol-section {
+            display: flex;
+            gap: 20px; /* Spațiu între coloane */
+        }
+
+        .carol-text {
+            width: 50%; /* Textul ocupă 50% din lățime */
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 0 auto; /* Centrare text */
+        }
+
+        .carol-images {
+            width: 50%; /* Imagini ocupă 50% din lățime */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Spațiu între imagini */
+        }
+
+        .carol-images img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stiluri pentru noile imagini adăugate */
+        .historical-images {
+            width: 50%; /* Imagini ocupă 50% din lățime */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Spațiu între imagini */
+        }
+
+        .historical-images img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <button id="nav-toggle">☰</button>
+    <div class="navigation-bar">
+        <button onclick="scrollToTop()">
+            <img src="poze/SteagulMonarhiei (1).png" alt="Acasă">
+        </button>
+        <button onclick="scrollToSection('carol1')">
+            <img src="poze/Carol_I_King_of_Romania.jpg" alt="Carol I">
+        </button>
+        <button onclick="scrollToSection('ferdinand1')">
+            <img src="poze/ferdinand.jpg" alt="Ferdinand I">
+        </button>
+        <button onclick="scrollToSection('carol2')">
+            <img src="poze/CarolAlDoilea.jpg" alt="Carol al II-lea">
+        </button>
+        <button onclick="scrollToSection('mihai1')">
+            <img src="poze/RegeleMihai.jpg" alt="Mihai I">
+        </button>
+        <button onclick="scrollToSection('bibliografie')">
+            <img src="poze/bibliografie.webp" alt="bibliografie">
+        </button>
+        <button onclick="location.href='test.html'">
+            <img src="poze/test.jpg" alt="Mihai I">
+        </button>
+    </div>
+    </div>
+    <!-- Prima parte: Imagine de fundal cu titlu -->
+    <div class="background-image">
+        <div class="title-box">
+            <h1 id="gradient-title">Monarhia în România</h1>
+        </div>
+    </div>
+    <!-- Secțiunea "Carol I" -->
+<div class="container section">
+    <h1 id="carol1">Carol I</h1>
+    <br>
+    <br>
+    <br>
+    <div class="carol-section">
+        <!-- Partea stângă: Text -->
+        <div class="carol-text">
+            <h3>Viața înainte de domnie</h3>
+            <p>
+                Alteţa Sa Serenisimă Principele Karl Eitel Friedrich Zephyrinus Ludwig a fost al doilea fiu al Principelui Karl Anton von Hohenzollern-Sigmaringen (7 septembrie 1811–2 iunie 1885), din ramura romano-catolică a vechii dinastii germane de Hohenzollern, menționată întâia oară în anul 1061, şi al Principesei Joséphine Frederica Luise de Baden (21 octombrie 1813–1900).</p>
+                Principele era înrudit, aşadar, atât cu dinastia din Prusia, cât şi cu Împăratul Napoleon al III-lea al Franţei. Viitorul Rege Carol I al României s-a născut la 8/20 aprilie 1839, la Sigmaringen, în Germania. A avut trei fraţi: Principele ereditar Leopold (1835–1905), Principii Anton (1841–1866) şi Friedrich (1843–1904), precum şi două surori, Principesele Stéphanie (1837–1859; căsătorită cu Regele Pedro al V-lea al Portugaliei) şi Marie Louise (1845–1912; căsătorită cu contele Filip de Flandra, cel care a refuzat Tronul Principatelor Unite, înainte ca acesta să îi fie oferit Principelui Carol; cei doi au fost părinţii Regelui Albert I al Belgiei). Primul Rege al României a murit în ziua de 27 septembrie 1914, la Castelul Peleş.
+            <h3>Viața înainte de domnie</h3>
+            <p>
+                Copil fiind, Carol a avut o guvernantă franceză, domnişoara Picard, şi un consilier ecleziastic cu numele de Emele. Carol a urmat apoi studii la Dresda. Sublocotenent de dragoni la Münster, locotenent secund în regimentul de artilerie al Gărzii prusace, apoi elev la Şcoala de artilerie şi inginerie de la Berlin, Principele Carol ia parte, în 1857, împreună cu tatăl lui, Karl Anton, la manevrele Diviziei 14 de la Schweidnitz (actualmente Swidnica, Polonia); revine apoi la Berlin, în anul 1858, pentru studii politice. În 1861 călătoreşte în Portugalia, Franţa şi Belgia, iar apoi în Algeria şi Spania. Vizitează Parisul în 1863. În anul 1864 ia parte, în rândurile trupelor prusace, la războiul împotriva Danemarcei, participând la atacul cetăţii Fredericia, cea mai puternică fortăreaţă daneză.
+            </p>
+            <h3>Alegerea lui Carol ca Domn al României</h3>
+            <p>
+                După refuzul contelui Philippe de Flandra, fratele Regelui Leopold al II-lea al Belgiei, de a primi Tronul României şi după mai multe consultări ale reprezentantului Locotenenţei domneşti la Paris, Ion Bălăceanu, cu Împăratul Napoleon al III-lea al Franţei, opţiunile românilor, încurajate de acordul deplin al Împăratului Franţei şi de sprijinul moderat al Prusiei, s-au îndreptat către Sigmaringen7. În ziua de 19 martie 1866, I.C. Brătianu îi propunea Principelui Carol, în numele României, să devină şeful statului român. Peste mai puţin de trei săptămâni, Brătianu îl anunţa pe principe, la Sigmaringen, că fusese ales Domnitor al Principatelor Unite, cu drepturi ereditare, prin plebiscitul desfăşurat între 2/14 şi 8/20 aprilie 1866. În favoarea lui Carol fuseseră exprimate 685 969 de voturi, iar împotrivă doar 2248. Coincidenţa făcea ca 20 aprilie să fie ziua de naştere a Principelui Carol, care devenea Domnitor al Principatelor Române Unite chiar în ziua în care aniversa 27 de ani. Plebiscitul este recunoscut de către Marile Puteri după o jumătate de an, la 24 octombrie 1866. La 28 aprilie 1866, proaspăt aleasa Adunare Constituantă a votat aproape unanim aducerea Principelui Carol pe Tronul ţării: 109 voturi pentru şi 6 abţineri. 
+            </p>
+            <p>
+                Domnitorul Carol ajunge în ţara sa de adopţie după o călătorie aventuroasă, de la Sigmaringen până la Turnu-Severin. Vaporul în care Suveranul călătorea, alături de Brătianu, a trecut de Porţile de Fier la 8 mai 1866, iar la ora patru după-amiaza Carol I a văzut drapelul românesc fluturând la Turnu-Severin. Principele Suveran a intrat în capitala ţării la 10 mai 1866, a primit cheile oraşului Bucureşti, a depus jurământul de credinţă în faţa Adunării Constituante şi a fost proclamat Domnitor al Principatelor Române. Elita politică din Principatele Române împlinea, astfel, vechea dorinţă a aducerii pe Tronul ţării a unui principe străin, capabil să unească definitiv Moldova şi Ţara Românească, să stingă pentru totdeauna rivalităţile dintre familiile domnitoare pământene, să stabilizeze ţara, să o modernizeze şi să îi confere prestigiu internaţional. Domnitorul Alexandru Ioan I însuşi era convins de necesitatea înlocuirii sale cu un principe străin. La 10 mai 1866, Carol I rostea următorul legământ:
+            </p>
+            <h3>Casatoria cu Regina Elena</h3>
+            <p>
+                Carol I s-a căsătorit la Neuwied, la 3/15 noiembrie 1869, cu Principesa Elisabeta de Wied. În genealogia Casei Regale a României există multe coincidenţe. Una dintre ele este faptul că, tot pe 15 noiembrie, dar în anul 1951, s-a născut Principesa Elena, a doua fiică a Regelui Mihai. Şi tot pe 15 noiembrie, în anul 1956, a murit Principesa Elisabeta a României, fostă regină a Greciei, fiica Regelui Ferdinand.
+            </p>
+            <p>
+                Când tinerii suverani au ajuns la Bucureşti, după nuntă, Carol i-a spus Elisabetei: „Iată palatul!“. „Unde?“, a întrebat principesa, văzând în faţa ochilor o casă modestă, cu etaj. „Uite, aici unde intrăm“, i-a răspuns imperturbabil Carol. În timpul domniei lui Carol I, Bucureştii aveau să se transforme dintr-un târg oriental într-o capitală europeană, supranumită de unii „Micul Paris“.
+                La 27 august/8 septembrie 1870 s-a născut unicul copil al Principelui Carol și Principesei Elisabeta: Principesa Maria a României. După moartea fetiţei sale, în 1874, Carol spunea:
+            </p>
+            <h3>Modernizarea României</h3>
+            <p>
+                În timpul lungii sale domnii, Regele Carol I a pus bazele României ca stat modern pe harta Europei. În anul 1875, bugetul ţării ajungea la cifra de 100 de milioane de lei, dublul celui din 1866, iar în 1903, la 218 milioane. Între anii 1865 şi 1874, suprafaţa arată a crescut cu o treime. În 1890, producţia de cereale a ţării a fost de 3 700 000 de tone; în anul 1903, aceasta ajungea la 5 500 000 de tone. Între anii 1880 şi 1914, România a exportat 80 de milioane de tone de cereale, situându-se printre cele mai importante ţări exportatoare de cereale din lume (a doua din Europa, după Rusia, şi chiar pe primul loc la exportul de porumb, înaintea Statelor Unite). Numărul întreprinderilor industriale mai mari a crescut, între 1866 şi 1877, de la 39 la 173. România avea şi importante zăcăminte de petrol care o plasau, în jurul anului 1900, printre primele trei ţări producătoare de ţiţei din lume, după Statele Unite şi Rusia. Leul românesc era o monedă puternică, echivalentă cu francul francez şi care putea fi utilizată ca valută forte peste tot în Europa. Populaţia a crescut, iar procesul de industrializare şi urbanizare a fost constant.
+             </p>
+             <p>
+                O primă țintă pe care şi-a propus-o tânărul principe a fost cunoaşterea directă a realităţilor ţării lui. Carol I a călătorit în toate provinciile româneşti, atât în oraşe şi comune, cât şi în sate izolate. Pasionat de echitaţie, călărea ore întregi pentru a deveni familiar cu comunitățile locale ale patriei sale. Îndrăgostit de monumentele istorice, a luat măsuri pentru împiedicarea degradării şi pentru restaurarea lor. Nici drumurile proaste, nici condiţiile precare de voiaj nu au constituit piedici pentru fostul locotenent al Armatei Prusace. În cursul deplasărilor (unele oficiale, altele nu), Carol I vizita, în respectiva localitate, prefectura, spitalul, şcoala, penitenciarul, unitatea militară.
+            </p>
+            <p>
+                Regele Carol I nu şi-a concentrat atenţia numai asupra agriculturii româneşti, ci şi asupra activităţilor care derivă din ea. Au apărut „instituţii-model, în primul rând pe tărâmul agriculturii, în scopul folosirii cât mai raţionale a pământului, apoi şi pe tărâmul industriei, încurajând apariţia de fabrici şi de întreprinderi menite să valorifice avantajos pentru populaţie produsele speciale ale anumitor moşii“.
+            </p>
+            <p>
+                Au apărut fabrici de cherestea, s-au îmbunătăţit căile navigabile şi drumurile, s-a acordat atenţie fondului cinegetic şi piscicol. Populaţia era instruită să îngrijească pământul, erau distribuite seminţe pentru grădini de flori şi legumicultură. Clădirile de pe Domenii respectau tradiţia arhitecturală a locului şi erau construite, cel mai adesea, din lemn. Ordinea şi curăţenia erau elemente de care se ţinea seama permanent. Se acorda importanţă activităţilor de asistenţă socială şi medicală şi învăţământului public, construindu-se numeroase şcoli și biblioteci cu un bogat fond de carte.
+            </p>
+            <h3>Viața politică</h3>
+            <p>
+                În ciuda tuturor frământărilor politice, uneori violente, a demagogiei, corupţiei şi lipsei de măsură a unora dintre politicieni, Carol I a reuşit să consolideze sistemul de partide şi să impună alternanţa la Guvernare a celor două mari partide structurate după model occidental şi conduse de bărbaţi politici de mare anvergură: Partidul Naţional Liberal (reprezentat prin I.C. Brătianu, Dumitru C. Brătianu, C.A. Rosetti, Mihail Kogălniceanu, Nicolae Kretzulescu, Dimitrie A. Sturdza, Ion Bălăceanu, Ion Ghica, Vasile Boerescu, Ion Câmpineanu, Nicolae Fleva, Spiru Haret, V.A. Urechia, Emil Costinescu, Nicolae Ionescu, Vasile Lascăr) şi Partidul Conservator (cu lideri ca Manolache Costache Epureanu, Petre P. Carp, Lascăr Catargiu, Petre Mavrogheni, Gheorghe Gr. Cantacuzino, Titu Maiorescu, Alexandru Marghiloman, Take Ionescu, Alexandru Lahovary, Nicolae Filipescu). Rege constituţional, Carol I nu a fost însă un monarh decorativ, ci unul implicat în viaţa ţării sale, cu un rol decisiv în actul de Guvernare, care a folosit cu abilitate sistemul „rotativei Guvernamentale“ şi a beneficiat de dreptul de veto absolut, conform căruia putea să refuze sancţionarea oricărei legi votate de Parlament. Cu toate acestea, Carol I a înţeles foarte bine că autoritatea nu este suficientă şi că pentru a conduce e nevoie de puterea exemplului. Referindu-se, într-o scrisoare adresată fratelui său, Principele Friedrich, la atentatele îndreptate împotriva Împăratului Germaniei, Carol I scria: „Doar o Guvernare de fier nu poate ajuta cu nimic.
+            </p>
+
+            <h3>Independența României și proclamarea Regatului</h3>
+            <p>
+                Prin simpla sa prezenţă, prin demnitatea apartenenţei la una dintre cele mai ilustre familii ale Europei, dar şi graţie curajului personal, Principele Suveran Carol a zdruncinat definitiv ultimele rămăşiţe simbolice ale vasalităţii faţă de Imperiul Otoman. Vizita sa la Constantinopol, în octombrie 1866, în cursul căreia s-a comportat faţă de Sultan ca un şef de stat, şi nu ca un vasal, a confirmat procesul ireversibil de ruptură faţă de Poartă. Aceeaşi demnitate o va arăta Carol şi aliatului rus din Războiul de Independenţă. Atunci când Țarul Alexandru al II-lea ameninţă, în 1878, după încheierea războiului, cu dezarmarea armatei române, în cazul în care România s-ar fi opus anexării sudului Basarabiei de către ruşi, Carol I îi răspunde că trupele române vor putea fi nimicite, dar nu dezarmate.
+            </p>
+            <p>
+                La 10 mai 1877, Carol proclama România stat independent şi instituia, în aceeaşi zi, Ordinul „Steaua României“. Suveranul s-a aflat efectiv în fruntea armatelor române, în timpul Războiului de Independenţă din 1877–1878, pe frontul din Bulgaria. Mica lui armată din 1866 s-a transformat, în 11 ani, în „viteaza lui armată“. Ea număra, în anul 1877, 58 700 de oameni, 108 tunuri şi alţi 70 000 de oameni formând Miliţia şi Garda Naţională. De multe ori, Carol I a finanţat cu bani din propria sa listă civilă înzestrarea armatei cu armament performant. Principele Carol a preluat în august 1877, după ce armatele ruse suferiseră mai multe înfrângeri, comanda supremă a armatelor ruso-române de la sudul Dunării, care aveau să cucerească Plevna de la otomani, la 28 noiembrie/10 decembrie 1877. Românii luptă eroic şi la Griviţa, Rahova, Smârdan. Principele victorios a fost primit cu entuziasm de notabilii şi de populaţia Bucureştilor. După Războiul ruso-româno-turc, României avea să-i fie recunoscută independenţa, prin Tratatul de la Berlin (semnat la 1/13 iulie 1878) şi avea să primească în componenţa sa provincia istorică a Dobrogei, care îi oferea gurile Dunării şi accesul la mare. Rusia anexa însă trei judeţe din sudul Basarabiei.
+            </p>
+            <p>
+                Carol I primeşte în mod oficial titlul de Alteţă Regală la 25 octombrie 1878. Devine Rege al României la 14/26 martie 1881, prin votul unanim al reprezentanţilor naţiunii. Carol I este încoronat Rege al României la 10mai 1881. Regele însuşi a cerut să fie încoronat cu o coroană din oţel, fabricată din metalul topit al unui tun de război capturat la Plevna.
+            </p>
+            <h3>Alte evenimente importante din timpul domniei</h3>
+
+        <div class="carol-text">
+            <ul>
+                <li><strong>29 iunie / 11 iulie 1866:</strong> Adunarea Constituantă adoptă prima Constituție a țării, una dintre cele mai avansate ale timpului.</li>
+                <li><strong>1867:</strong> Se introduce sistemul monetar național, iar în 1870 sunt bătute primele monede de aur, argint și aramă, odată cu înființarea Monetăriei Statului.</li>
+                <li><strong>1867:</strong> Principatele Unite au pavilion separat la Expoziția Universală de la Paris.</li>
+                <li><strong>15 septembrie 1867:</strong> Carol I devine membru de onoare al Societății Academice Române, devenită Academia Română în 1879. Regele a lăsat Academiei, prin testament, suma de 600.000 de lei.</li>
+                <li><strong>1867:</strong> Înființarea Școlii Normale „Carol I”, finanțată din caseta personală a Domnitorului.</li>
+                <li><strong>11 mai 1868:</strong> Înființarea Societății Filarmonice Române.</li>
+                <li><strong>31 octombrie 1869:</strong> Inaugurarea liniei de cale ferată București-Giurgiu și a Gării Filaret. Până în 1906, rețeaua feroviară ajunge la 3.180 km.</li>
+                <li><strong>14 decembrie 1869:</strong> Inaugurarea Palatului Universității din București.</li>
+                <li><strong>12 noiembrie 1871:</strong> Inaugurarea Uzinei de gaz aerian de la Filaret.</li>
+                <li><strong>25 septembrie 1872:</strong> Inaugurarea Gării de Nord din București.</li>
+                <li><strong>1872:</strong> Începutul funcționării Școlii Militare de Infanterie și Cavalerie din București și a Școlii fiilor de militari din Iași.</li>
+                <li><strong>26 decembrie 1872:</strong> Introducerea tramvaiului cu cai în București.</li>
+                <li><strong>1875:</strong> Înființarea Fabricii de ulei vegetal din București.</li>
+                <li><strong>15 decembrie 1875:</strong> Începutul activității Băncii de București (cu capital francez).</li>
+                <li><strong>4 iulie 1876:</strong> Fondarea Societății Naționale de Cruce Roșie a României.</li>
+                <li><strong>1879:</strong> Inaugurarea liniei de cale ferată Ploiești-Predeal, conectând Transilvania cu București.</li>
+                <li><strong>17/29 aprilie 1880:</strong> Înființarea Băncii Naționale a României, a 16-a bancă centrală din lume.</li>
+                <li><strong>1880–1883:</strong> Amenajarea cursului Dâmboviței.</li>
+                <li><strong>1882:</strong> Introducerea iluminatului electric la București.</li>
+                <li><strong>1 decembrie 1882:</strong> Deschiderea Bursei din București.</li>
+                <li><strong>25 septembrie 1883:</strong> Inaugurarea Castelului Peleș din Sinaia.</li>
+                <li><strong>1884:</strong> Introducerea primei linii telefonice în București.</li>
+                <li><strong>1/13 mai 1885:</strong> Recunoașterea autocefaliei Bisericii Ortodoxe Române de către Patriarhatul Ecumenic de la Constantinopol.</li>
+                <li><strong>1885:</strong> Deschiderea Grădinii Botanice la Cotroceni.</li>
+                <li><strong>23 aprilie 1887:</strong> Sfințirea Catedralei Mitropolitane din Iași.</li>
+                <li><strong>1888:</strong> Inaugurarea Ateneului Român.</li>
+                <li><strong>14 martie 1895:</strong> Inaugurarea Fundațiunii Universitare „Regele Carol I” (actuala Bibliotecă Centrală Universitară).</li>
+                <li><strong>Septembrie 1895:</strong> Inaugurarea Podului Carol I de la Cernavodă, cel mai lung pod din Europa continentală la acea vreme.</li>
+                <li><strong>8 iunie 1897:</strong> Punerea pietrei fundamentale a Palatului „Casei de Depuneri, Consemnațiuni și Economie”.</li>
+                <li><strong>1895–1910:</strong> Modernizarea portului Constanța.</li>
+                <li><strong>1901:</strong> Inaugurarea Palatului Poștelor din București (actualul Muzeu Național de Istorie a României).</li>
+                <li><strong>27 ianuarie 1903:</strong> Fondarea Confederației Patronale UGIR (Uniunea Generală a Industriașilor din România).</li>
+                <li><strong>1904:</strong> România ocupă locul patru în Europa la numărul de telegrame trimise.</li>
+                <li><strong>17 ianuarie 1906:</strong> Promulgarea primei „Legi a Brevetelor de Invenție” și înființarea Biroului Brevetelor.</li>
+                <li><strong>6 iunie 1906:</strong> Inaugurarea Expoziției Naționale Române din București.</li>
+                <li><strong>1906:</strong> Construcția a 40 de spitale rurale.</li>
+                <li><strong>1908:</strong> Înființarea Observatorului Astronomic cu planetariu.</li>
+                <li><strong>1908:</strong> Înființarea Direcției Generale a Porturilor și Căilor de Comunicație pe Apă.</li>
+                <li><strong>1 decembrie 1912:</strong> Întemeierea Federației Societăților Sportive din România (F.S.S.R.).</li>
+            </ul>
+        </div>
+    
+            <h3>Portretul lui Carol I</h3>
+            <p>
+                Carol este descris, în literatura vremii ca un bărbat mai degrabă mic de statură, dar de o mare demnitate. A impus respect într-o lume plină de incertitudini şi a făcut din micul său regat un stat respectat şi stabil. A fost un suveran distant, sever şi măsurat, bucurându-se de o autoritate excepţională. A avut vocaţie de lider şi a condus România în momente politice şi istorice dificile, pe care le-a traversat plin de curaj. Complexitatea personalităţii Regelui Carol I poate lesne reieşi din jurnalul său, ce conţine, în general, notaţii seci şi precise ale evenimentelor politice sau ale stării vremii, dar şi date surprinzătoare despre sociabilitatea ponderată, dar consistentă a Regelui, care se întâlnea cu reprezentanţii elitei româneşti, mergea la spectacole şi chiar la unele baluri.
+            </p>
+
+            <h3>Dilema din ultimii ani de viață</h3>
+            <p>
+                Ultimii ani ai Regelui nu au fost lipsiţi de cumpene sufleteşti: omul de onoare şi militarul german înclinau să intre în Primul Război Mondial alături de Puterile Centrale. Regele României a ştiut însă să respecte voinţa covârşitoare a poporului său: alianţa cu Franţa şi Anglia, în vederea eliberării Transilvaniei de sub dominaţia austro-ungară. Soluţia temporară a fost neutralitatea.
+            </p>
+            <p>
+                Întemeietorul Regatului român a murit la Sinaia, în ziua de 27 septembrie 1914, la ora cinci şi treizeci de minute dimineaţa. Avea şaptezeci şi cinci de ani, dintre care domnise patruzeci şi opt. Carol I a fost înmormântat la Curtea de Argeş, locul ales de el ca necropolă a Familiei Regale a României. 
+            </p>
+        </div>
+
+        <div class="carol-images">
+            <div class="image">
+                <img src="poze/Carol1873.jpg" alt="Carol I" >
+                <p class="caption">Portret al lui Carol I al României, de George P. A. Healy, 1873.</p>
+            </div>
+            <div class="image">
+                <img src="poze/AbdicareCuza.png" alt="Podul de la Cernavodă">
+                <p class="caption">Abdicarea lui Alexandru Ioan Cuza</p>
+            </div>
+            <div class="image">
+                <img src="poze/JuramantCarol.jpeg" alt="Constituția din 1866">
+                <p class="caption">Jurământul Principelui Carol I de Hohenzollern-Sigmaringen la București, 10 mai 1866 (tradus din franceză)</p>
+            </div>
+            <div class="image">
+                <img src="poze/IntrareaLuiCarol.jpg" alt="Constituția din 1866">
+                <p class="caption">10 mai 1866: Intrarea în București a principelui Carol I.</p>
+            </div>
+            <div class="image">
+                <img src="poze/portul-din-constanta-profi_descopera.jpg" alt="Constituția din 1866">
+                <p class="caption">Carte Postala(Vedere) cu Portul Constanța în construcție</p>
+            </div>
+            <div class="image">
+                <img src="poze/GaraDeNord1872.jpeg" alt="Gara de Nord">
+                <p class="caption">Gara de Nord din București, 1872</p>
+            </div>
+            <div class="image">
+                <img src="poze/prima-cale-ferata-construita-de-romani-800x599.jpg" alt="Gara de Nord">
+                <p class="caption">Prima cale ferată construită de români(Buzău-Mărășești)</p>
+            </div>
+            <div class="image">
+                <img src="poze/CoroanaDeOtel.jpg" alt="Constituția din 1866">
+                <p class="caption">10 mai 1866: Intrarea în București a principelui Carol I.</p>
+            </div>
+            <div class="image">
+                <img src="poze/CarolLaGrivita.jpg" alt="Constituția din 1866">
+                <p class="caption">Johann Nepomuk Schonberg - Regele Carol I vizitand reduta Grivita</p>
+            </div>
+            <div class="image">
+                <img src="poze/Nicolae_Grigorescu_-_Atacul_de_la_Smardan.jpg" alt="Constituția din 1866">
+                <p class="caption">Atacul de la Smârdan, de Nicolae Grigorescu</p>
+            </div>
+            <div class="image">
+                <img src="poze/CarolFerdinandCarol.jpg" alt="Constituția din 1866">
+                <p class="caption">Regele Carol I, Principele Ferdinand I și fiul acestuia, Carol al II-lea</p>
+            </div>
+            <div class="image">
+                <img src="poze/CarolFerdinandSiTarulNicolae.png" alt="Constituția din 1866">
+                <p class="caption">Principele Ferdinand, Țarul Nicolae și Regele Carol I</p>
+            </div>
+            <div class="image">
+                <img src="poze/CoroanaRegala2.JPG" alt="Constituția din 1866">
+                <p class="caption">Coroana Regala</p>
+            </div>
+            <div class="image">
+                <img src="poze/CoroaneleRegale.png" alt="Constituția din 1866">
+                <p class="caption">Însemnele regalității române</p>
+            </div>
+            <div class="image">
+                <img src="poze/PavilioaneleRegale.png" alt="Constituția din 1866">
+                <p class="caption">Însemnele regalității române</p>
+            </div>
+            <div class="image">
+                <img src="poze/BuzduganulRegal.png" alt="Constituția din 1866">
+                <p class="caption">Însemnele regalității române</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Secțiunea "Ferdinand I" -->
+<div class="container section">
+    <h1 id="ferdinand1">Ferdinand I</h1>
+    <div class="carol-section">
+        <!-- Partea stângă: Imagini -->
+        <div class="carol-images">
+            <div class="image">
+                <img src="poze/Ferdinand2.jpg" alt="Ferdinand I">
+                <p class="caption">Ferdinand I, al doilea rege al României</p>
+            </div>
+            <div class="image">
+                <img src="poze/MareaUnire.jpg" alt="Marea Unire">
+                <p class="caption">Adunarea de la Alba Iulia, 1 decembrie 1918</p>
+            </div>
+            <div class="image">
+                <iframe src="https://www.cdep.ro/pls/legis/legis_pck.htp_act_text?idt=1517" width="100%" height="400px" style="border-radius: 8px; border: none;"></iframe>
+                <p class="caption">Constituția României din 1923 (site-ul oficial al Camerei Deputaților)</p>
+            </div>
+            <div class="image">
+                <img src="poze/IncoronareFerdinand2.jpg" alt="Reforma Agrară">
+                <p class="caption">Încoronarea regelui Ferdinand I</p>
+            </div>
+            <div class="image">
+                <img src="poze/Greater_Romania.svg" alt="Reforma Agrară">
+                <p class="caption">Harta României Mari, împărțită pe județe</p>
+            </div>
+            <div class="image">
+                <img src="poze/MiculParis.png" alt="Reforma Agrară">
+                <p class="caption">Centrul Bucureștiului în perioada interbelică</p>
+            </div>
+            <div class="image">
+                <img src="poze/StatuieFerdinandOradea.jpg" alt="Reforma Agrară">
+                <p class="caption">Statuia Regelui Ferdinand I, Oradea</p>
+            </div>
+            <div class="image">
+                <img src="poze/Regina-Maria-2.jpg" alt="Reforma Agrară">
+                <p class="caption">Regina Maria a României</p>
+            </div>
+            <div class="image">
+                <img src="poze/ArculDeTriumf1922.png" alt="Reforma Agrară">
+                <p class="caption">Arcul de Triumf, 1922</p>
+            </div>
+        </div>
+
+        <!-- Partea dreaptă: Text -->
+        <div class="carol-text">
+            <h3>Viața înainte de domnie</h3>
+            <p>
+                Alteţa Sa Serenisimă Principele Ferdinand Victor Albert Meinrad de Hohenzollern-Sigmaringen a văzut lumina zilei la Sigmaringen, la 24 august 1865, fiu al Principelui Leopold de Hohenzollern-Sigmaringen (1835–1905), pretendent la Tronul Spaniei, şi al Infantei Antonia a Portugaliei, Principesă de Bragança şi de Saxa-Coburg-Gotha (1845–1913).
+
+El a studiat la Școala Militară din Kassel, la Universitatea din Leipzig, la Universitatea din Bonn şi la Şcoala Superioară de Ştiinţe Politice şi Economice din Tübingen.
+            </p>
+            <p>
+                Ferdinand devine oficial Principele de Coroană al României în noiembrie 1888, la 23 de ani. Ferdinand rămâne Principe Moștenitor timp de 26 de ani și arată o extraordinară loialitate Regelui Carol I, pregătindu-se discret, măsurat și temeinic pentru a prelua pe creștet Coroana de Oțel a României.
+            </p>
+            <p>
+                Regele Carol I face o vizită în noiembrie 1892 la Londra și Windsor, în care cere Reginei Victoria mâna Principesei Maria de Edinburgh pentru nepotul lui, Ferdinand. Carol I primește cu acea ocazie Ordinul Jartierei.
+
+Ferdinand s-a căsătorit la Sigmaringen, în ziua de 10 ianuarie 1893, cu Principesa Maria a Marii Britanii şi Irlandei, Principesă de Edinburg și Principesă de Saxa-Coburg-Gotha.
+            </p>
+            <p>
+                În 1896, Principii Moștenitori Ferdinand și Maria reprezintă Familia Regală română la încoronarea Țarului Nicolae al II-lea.
+            </p>
+            <h3>Domnia Regelui Ferdinand I(1914-1927)</h3>
+            <p>
+                Ferdinand I a urcat pe Tron la 28 septembrie/ 11 octombrie 1914 şi a domnit timp de 13 ani, până în ziua morții, 20 iulie 1927. Loialitatea sa față de țară, tăria convingerilor sale și felul ireproșabil în care servește Națiunea și Coroana îi aduc numele de ,,Ferdinand cel Loial”. Domnia Regelui Ferdinand a fost marcată de două evenimente majore în istoria ţării: Primul Război Mondial şi Marea Unire ce a urmat războiului.
+            </p>
+            <p>
+                După doi ani de neutralitate, în urma deciziei din 14/27 august 1916 a Consiliului de Coroană, prezidat de Rege, România a intrat în război, la 14/27 august, alături de Antanta (Franţa, Marea Britanie, Rusia, Italia). Regele Ferdinand va fi numit „cel Loial“ pentru că, deşi născut german şi rudă apropiată a Împăratului Germaniei, a aşezat interesul României mai presus de legătura lui de sânge şi a luptat împotriva ţării lui de origine. Profund religios, sensibil şi cu un înalt simţ moral, Regele a luat această hotărâre printr-un mare sacrificiu personal, respectându-şi astfel promisiunea de a fi „un bun român“, făcută în jurământul depus în faţa Parlamentului, la întronare. În preziua Consiliului de Coroană decisiv, Regele îi spunea lui Titu Maiorescu, om politic conservator filogerman, care încerca să îl convingă să nu aleagă alianţa cu Antanta: „După lupte teribile care s-au dat în mine, sacrific totul pentru binele patriei."
+            </p>
+            <p>
+                Începutul războiului nu a fost favorabil României, care a pierdut sudul ţării şi Capitala. Familia Regală şi autorităţile statului au fost nevoite să se refugieze la Iaşi, Regele Ferdinand rămânând garanţia independenţei ţării şi sprijinul moral al soldaţilor şi al populaţiei civile afectate de înfrângere, epidemii şi foamete. În pragul dezastrului militar, renegat de familia sa din Germania şi confruntat cu moartea propriului copil, Mircea, în 1916, Regele Ferdinand nu şi-a pierdut credinţa în forţa de redresare a naţiunii sale. În Iaşii refugiului a fost creată Fundaţia „Regele Ferdinand I“.
+            </p>
+            <p>
+                Sprijinul misiunii militare franceze conduse de generalul Berthelot a dus la refacerea armatei române, care şi-a demonstrat eroismul, sub comanda generalilor Alexandru Averescu şi Eremia Grigorescu, în bătăliile de la Mărăşti (11/24 iulie – 19 iulie/1 august 1917) Mărăşeşti (24 iulie/6 august – 21 august/3 septembrie 1917) şi Oituz (26 iulie/8 august – 9/22 august 1917). Regele nu a ratificat pacea separată cu Puterile Centrale (semnată la 24 aprilie/7 mai 1918), soluţie la care apelase guvernul de la Bucureşti din cauza pierderii sprijinului Rusiei, ce intrase în nefasta zodie a revoluţiilor. Mersul războiului a schimbat însă soarta României, aducându-i victoria şi alipirea provinciilor istorice aflate în afara Statului român. Regele rămăsese, pe tot parcursul războiului, alături de armata sa, prin desele vizite pe front şi repetatele încurajări şi promisiuni în legătură cu schimbările majore care aveau să fie înfăptuite, după încheierea conflictului. La 13 august 1917, într-o proclamaţie adresată armatei şi poporului, Regele spunea: „Oricât am suferi, trebuie să urmăm soarta şi să asigurăm menirea neamului nostru.“. Încă de la 26 septembrie/ 9 octombrie 1916, Regele instituise cel mai înalt ordin militar de război din România, Ordinul „Mihai Viteazul“.
+
+
+            </p>
+            <p>
+                După război, Ferdinand I, supranumit şi „Întregitorul“, a văzut împlinirea visului românilor, prin Unirea succesivă a Basarabiei, Bucovinei şi Transilvaniei cu Ţara. În urma prăbuşirii Imperiului ţarist, Sfatul Țării de la Chişinău a votat, la 27 martie/9 aprilie 1918, cu 86 de voturi pentru, 3 contra şi 36 de abţineri, alipirea Basarabiei la România, act confirmat prin Decretul Regal din 10 aprilie 1918. Se împlinea astfel dorinţa patrioţilor români din Basarabia, reprezentaţi de figuri ca Pantelimon Halippa, Ion Pelivan sau Ion Inculeţ. La 15/28 noiembrie 1918, Congresul General al Bucovinei, din Cernăuţi, vota alipirea Bucovinei la România, act confirmat de Regele Ferdinand, prin Decretul Regal din 19 decembrie 1918; printre fruntaşii unionişti din Bucovina s-au aflat: Iancu, cavaler de Flondor, Sextil Puşcariu, Dionisie Bejan, Ion Nistor. Adunarea Naţională de la Alba Iulia, la care au participat 1.228 de delegaţi şi au asistat peste 100 000 de români, a exprimat vocea naţiunii. La 18 noiembrie/1 decembrie 1918, se hotăra Transilvaniei, Banatului, Crişanei, Sătmarului şi Maramureşului cu Ţara, act confirmat de Rege, prin Decretul Regal de la 13 decembrie 1918. Printre personalităţile care au lucrat pentru Unirea Transilvaniei cu Ţara s-au numărat Iuliu Maniu, Alexandru Vaida-Voevod, Gh. Pop de Băseşti, Vasile Goldiş, Ştefan Cicio Pop, Ion Flueraş, Theodor Mihali și Aurel Vlad. Toate cele trei alipiri au fost ratificate de Parlamentul României, la 31 decembrie 1919.
+            </p>
+            <p>
+                La Versailles, pe data de 28 iunie 1919, România semna Tratatul de Pace cu Germania. Au urmat tratatele cu Austria (Saint Germain-en-Laye, 10 decembrie 1919), Bulgaria (Neuilly-sur-Seine, 27 noiembrie 1919), Ungaria (Trianon, 4 iunie 1920) şi Turcia (Lausanne, 24 iulie 1923). După Conferinţa de Pace de la Paris, România Mare beneficia de recunoaşterea majorităţii statelor lumii. 
+            </p>
+            <h4>Regele Ferdinand "Întregitorul"</h4>
+            <p>La 15 octombrie 1922, la Alba Iulia, Ferdinand I a fost încoronat Rege al tuturor românilor, alături de Regina Maria. În timpul slujbei oficiate de Patriarhul Miron Cristea au fost sfinţite coroanele (vechea Coroană de Oţel a Regelui Carol I, pentru Ferdinand, şi o coroană nouă, din aur, pentru Maria) şi binecuvântaţi Suveranii. Afară, Regelui şi Reginei li s-au aşezat pe umeri purpura şi hermina, iar pe creştet, coroanele. Încoronarea a fost urmată de 101 salve de tun şi de ovaţiile asistenţei. În discursul său, Regele Ferdinand a spus:
+            </p>
+            <p><i>"Punând pe capul meu, într-această străveche cetate a Daciei romane, coroana de oţel de la Plevna, pe care noi şi glorioasele lupte au făcut-o pe veci coroana României Mari, mă închin cu evlavie memoriei celor care, în toate vremurile şi de pretutindeni, prin credinţa lor, prin munca şi prin jertfa lor, au asigurat unitatea naţională, şi salut cu dragoste pe cei care au proclamat-o într-un glas şi o simţire, de la Tisa până la Nistru şi până la Mare."</i></p>
+            <p>
+                Domnia Regelui Ferdinand a adus consolidarea rapidă a ţării, prin unificarea administrativă, proclamarea votului universal, egal, direct şi secret (până atunci se votase pe baza colegiilor cenzitare, aşadar în funcţie de avere) şi reforma agrară din 1921. Legea pentru reforma agrară, din 17 iulie 1921, prevedea exproprierea marilor moşii şi împroprietărirea combatanţilor din Marele Război, a invalizilor, văduvelor şi orfanilor de război şi a ţăranilor fără pământ. În urma acestei reforme radicale, mica proprietate agricolă a devenit predominantă în România. Nu trebuie uitat că această reformă a fost promisă de Rege soldaţilor în timpul războiului, ea putând fi aplicată datorită votului unui Parlament dominat de marii proprietari funciari. Caz unic în istorie, o reformă agrară de o asemenea amploare a fost făcută de înşişi proprietarii terenurilor.
+            </p>
+            <p>
+                În iunie 1925 era votată legea pentru unificare administrativă. Punerea împreună a unor provincii cu sisteme administrative şi cu mentalităţi atât de diverse a fost un proces complicat, iar rapiditatea cu care România a atins omogenitate administrativă, la doar câţiva ani de la Marea Unire, reprezintă o performanţă notabilă.
+            </p>
+            <h4>Ultimii ani și problema urmașului la tron</h4>
+            <p>
+                Una dintre marile dureri ale Regelui a fost incapacitatea fiului său cel mare, Principele Carol, de a pune interesele naţionale şi dinastice deasupra pasiunilor. În cele din urmă, Ferdinand l-a desemnat ca urmaş la Tronul României pe nepotul său, Mihai. Într-o scrisoare trimisă, la 15 iulie 1927, preşedintelui Consiliului de Miniştri, Regele îşi exprima ultima  dorinţă: aceea ca Mihai să-i urmeze la Tron, ajutat de Principele Nicolae, ca Regent. Ferdinand îl ruga pe fiul său cel mare, Carol, să respecte situaţia creată prin însăşi renunţarea lui la drepturile dinastice.
+            </p>
+            <p>
+                Regele Ferdinand I moare, după o lungă suferinţă, în ziua de 20 iulie 1927, la ora două şi cincisprezece minute, la Sinaia, în vârstă de aproape şaizeci şi doi de ani, cu Regina Maria şi patru dintre copii alături. Câteva decenii mai târziu, în aceeaşi zi a anului 1983, avea loc căsătoria civilă a Principesei Elena, fiica Regelui Mihai, cu Robin Leslie Medforth-Mills. Funeraliile naţionale ale Regelui Ferdinand au fost un eveniment la care au participat zeci de mii de români. Ei şi-au arătat, astfel, iubirea şi recunoştinţa pentru suveranul lor „cel Loial“. Ferdinand I este înmormântat la Curtea de Argeş, alături de unchiul şi mătuşa lui. La serviciul religios de la Curtea de Argeş au participat, în ziua de 24 iulie 1927, 40 000 de oameni. La puţin timp după suveranul pe care îl slujise cu credinţă avea să se stingă şi Ion I.C. Brătianu, unul dintre cei mai importanţi oameni de stat din istoria României.
+            </p>
+            <p>
+                În 1914, la venirea pe Tron a Regelui Ferdinand, România avea 7.7 milioane de locuitori şi un teritoriu de 137 000 kilometri pătrați. La moartea lui, ţara număra 17.1 milioane de locuitori şi se întindea pe 295 049 kilometri pătrați. Paradoxurile istoriei şi Providenţa au decis ca acest principe discret şi cultivat să înfrunte un război mondial, să facă alegeri dureroase, să treacă prin boli grele şi chiar prin atentate puse la cale de bolşevici. Tot Providenţa a vrut însă ca Regele Ferdinand să-şi întregească ţara şi să fie încoronat Rege al tuturor românilor. În "Oameni care au fost", Nicolae Iorga scria: „Cel mai mare moment din istoria noastră va rămâne legat de numele lui“.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container section">
+    <h1 id="carol2">Carol al II-lea</h1>
+    <br>
+    <br>
+    <br>
+    <div class="carol-section">
+        <!-- Partea stângă: Text -->
+        <div class="carol-text">
+            <h3>Viața înainte de domnie</h3>
+            <p>
+                Alteţa Sa Regală Principele Carol s-a născut la Sinaia, la 3 octombrie 1893, ca fiu al Principelui Moştenitor Ferdinand şi al Principesei Moştenitoare Maria.
+
+                Principele Carol a fost primul viitor Rege născut în România şi botezat în ritul ortodox. A învăţat româneşte de mic şi a studiat istoria şi geografia ţării. Pasiunile lui se împărţeau între cărţi şi uniforma militară. A şi urmat, de altfel, cursurile Academiei Militare de la Potsdam.
+            </p>
+            <p>
+                Principele Moştenitor Carol s-a căsătorit la Atena, la 10 martie 1921, cu Principesa Elena a Greciei şi a Danemarcei. În toamna dinaintea căsătoriei, Principele Carol şi logodnica lui vizitaseră întreaga ţară şi se întâlniseră cu români de la sate şi din oraşe, câştigând simpatia opiniei publice. Astfel, tânărul cuplu princiar devine foarte popular. Din aceste călătorii au rămas o serie de fotografii, printre puţinele pe care cei doi le au împreună.
+            </p>
+           <p>
+            La 25 octombrie 1921 se naşte fiul lor, Mihai, la Castelul Foişor din Sinaia. Cei trei locuiesc la Bucureşti, într-o casă de pe Şoseaua Kiseleff, pusă la dispoziție de Guvern. La 28 decembrie 1925, Principele Carol renunţă la toate drepturile la Tronul României, pleacă în Franţa şi ia numele de Carol Caraiman. În 1927, la moartea Regelui Ferdinand, Mihai I devine Rege. Suveranul copil era reprezentat de o Regenţă formată din: Principele Nicolae, Patriarhul Miron Cristea şi Gheorghe Buzdugan (1867–1929), jurist şi om politic, preşedinte al Înaltei Curţi de Casaţie (1924–1927). La moartea lui Gheorghe Buzdugan, în 1929, locul lui în Regenţă a fost luat de către Constantin Sărăţeanu (1862–1935), magistrat şi fost ministru în Guvernul Alexandru Averescu.
+           </p>
+           <p>
+            Regenţa nu a dat rezultate strălucite, iar pe fondul crizei economice mondiale începute în 1929, viaţa politică românească era agitată şi confuză. Din exil, Carol dădea semne de interes faţă de Tronul de care pretinsese, cândva, că nu are nevoie. Carol coboară din avion la 6 iunie 1930, iar la 8 iunie este proclamat Rege.
+           </p>
+           <p>
+            Carol al II-lea a fost o personalitate cu lumini și umbre. Inteligent şi erudit, cu un excelent dar oratoric și cu carismă, el s-a lăsat copleşit nu o dată de slăbiciuni şi excese care au adus mult rău propriei persoane, Familiei şi, mai ales, ţării. Aventurile sale, precum şi defectul de a se înconjura de o societate îndoielnică i-au pus în umbră abilitatea de a domni, chiar dacă a fost un monarh căruia i-a plăcut „meseria de Rege“ şi care avea o bună stăpânire a chestiunilor militare, legislative şi administrative.
+           </p>
+           <p>
+            România s-a bucurat, în deceniul al patrulea al secolului trecut, de o frumoasă reputaţie, în termeni de politică externă şi de viaţă culturală şi ştiinţifică. Dintre toate titlurile pe care propaganda oficială i le-a inventat lui Carol al II-lea, probabil că acela de „Rege al culturii“ are cea mai mare acoperire în realitate. Având un gust rafinat, Regele a ştiut să sprijine valorile reale ale culturii române, prin intermediul Fundaţiei pentru Literatură şi Artă Regele Carol al II-lea, care acorda premii, burse şi publica opere importante ale scriitorilor români. Anii domniei Regelui Carol al II-lea au dat sau au afirmat cele mai mari nume româneşti din cultura şi ştiinţa secolului  XX: Emil Cioran, George Enescu, Elvira Popescu, Eugen Ionescu, Mircea Eliade, Constantin Brâncuşi, George Emil Palade, Ionel Perlea, Constantin Noica, Tristan Tzara. Tot în aceşti ani a strălucit marele diplomat Nicolae Titulescu.
+           </p>
+           <p>
+            Şi situaţia economică a ţării s-a îmbunătăţit în timpul domniei lui Carol al II-lea, putându-se vorbi de o „explozie economică“, multe ramuri ale industriei înregistrând creşteri impresionante: dacă în 1921 România producea 1 851 303 tone de petrol, în 1937 se ajunsese la 7 149 641 tone; în industria metalurgică, valoarea producţiei (în mii de lei) creştea, din 1927 în 1937, de la 8 575 686 la 10 494 414. Anul 1937 a fost, multă vreme, considerat etalon de prosperitate; chiar comuniştii obişnuiau să-şi compare „măreţele realizări“ cu anul 1937. Una dintre cele mai importante măsuri pentru coordonarea activității economice naționale interbelice a fost organizarea Consiliului Suprem Economic, în 1936.
+
+
+           </p>
+           <p>
+            S-a construit mult în timpul Regelui Carol al II-lea, mai ales în Bucureşti, unde s-a organizat, începând cu 1935, şi manifestarea populară numită „Luna Bucureştilor“. În 1937, România a luat parte la Expoziţia Universală de la Paris: pavilionul a fost proiectat de arhitectul Duiliu Marcu, iar prezentarea României, concepută de Dimitrie Gusti. Succesul de imagine a fost unul răsunător.
+           </p>
+           <p>
+            Pe de altă parte, Europa acelor timpuri trăia tentaţia dictaturilor. Aproape toate ţările europene erau conduse de regimuri dictatoriale sau autoritare, iar Carol al II-lea a ales şi el să conducă în mod discreţionar, în ultimii doi ani de domnie. În februarie 1938, a dizolvat Parlamentul şi a instituit un regim de autoritate monarhică. Noua Constituţie din 27 februarie 1938 întrerupea tradiţia monarhiei constituţionale şi a regimului liberal, inaugurată de Carol I în 1866 şi continuată de Constituţia din 1923. În noua lege fundamentală din 1938, separarea puterilor în stat practic dispărea, Regele („Capul Statului“) având controlul puterilor legislativă (avea iniţiativă legislativă şi putea respinge orice lege a Parlamentului, convoca şi dizolva Parlamentul, numea o parte din membrii Senatului) şi executivă (numea şi revoca miniştrii). În martie 1938 este reînviată vechea instituţie a Consiliului de Coroană, menită acum să consolideze puterea Regelui, şi este emis Decretul-lege pentru dizolvarea asociaţiilor, grupurilor şi partidelor politice. Dispreţul Regelui şi al unei părţi a elitei româneşti faţă de partidele politice a dus la sfârşitul democraţiei Parlamentare româneşti, care, cu toate neajunsurile provocate de inerentul politicianism, crease, împreună cu monarhia constituţională, statul român independent, modern şi întregit. La 15 decembrie 1938 este înfiinţat şi partidul unic, sub numele de Frontul Renaşterii Naţionale (din care aveau să facă parte şi importante personalităţi, precum Nicolae Iorga). Sindicatele sunt înlocuite cu „bresle“ (12 octombrie 1938).  
+           </p>
+           <p>
+            Ca și înaintașii săi, Regele Carol al II-lea a avut o contribuție importantă la crearea de noi instituții ale statului, în acord cu dezvoltările politice și economice din Europa, precum și la îmbogățirea patrimoniului construit. De numele Regelui Carol al II-lea sunt legate Arcul de Triumf, statuia ecvestră a Regelui Carol I din Piața Palatului, Muzeul Satului, lacurile de la Herăstrău și Băneasa, Gara Regală Băneasa, Gara Regală Sinaia, Universitatea Națională de Apărare, primării, universități, colegii și licee, catedrale, biserici și mânăstiri, multe dintre acestea din urmă în orașe și comune basarabene.
+           </p>
+           <p>
+            În faţa tensiunilor tot mai mari din viaţa românească, urmare a situaţiei explozive din Europa şi a propriilor erori, Regele Carol al II-lea a plecat în exil, la 6 septembrie 1940.
+           </p>
+           <p>
+            A locuit în Statele Unite, Mexic, Brazilia şi Portugalia. Regele Mihai și Regina Ana nu l-au întâlnit niciodată, după căsătoria lor din 1948. Niciunul dintre copiii Regelui Mihai nu și-a întâlnit vreodată bunicul patern.
+
+Regele Carol al II-lea a murit la Lisabona, în 1953, şi a fost înmormântat la Estoril, în capela regilor portughezi. Cincizeci de ani mai târziu, în ziua de 13 februarie 2003, rămăşiţele pământeşti ale Regelui Carol al II-lea au revenit în ţară şi a doua zi au fost așezate în Paraclisul Sfinților Petru și Pavel din spatele vechii catedrale a Mănăstirii Curtea de Argeş.
+           </p>
+
+        </div>
+
+        <div class="carol-images">
+            <div class="image">
+                <img src="poze/CarolAlDoilea.jpg" alt="Carol al II-lea">
+                <p class="caption">Carol al II-lea, regele României</p>
+            </div>
+            <div class="image">
+                <img src="poze/ArculDeTriumf1936.jpg" alt="Arcul de Triumf">
+                <p class="caption">Arcul de Triumf din București dupa renovare, 1936</p>
+            </div>
+            <div class="image">
+                <iframe src="https://www.cdep.ro/pls/legis/legis_pck.htp_act_text?idt=9206" width="100%" height="400px" style="border-radius: 8px; border: none;"></iframe>
+                <p class="caption">Constituția României din 1938 (site-ul oficial al Camerei Deputaților)</p>
+            </div>
+            <div class="image">
+                <img src="poze/Garile-Regale-din-orasul-Sinaia-flickr.jpg" alt="Gara Regală Băneasa">
+                <p class="caption">Gara Regală Sinaia</p>
+            </div>
+            <div class="image">
+                <img src="poze/Universitea-Nationale-de-Aparare-Bucuresti-4.webp" alt="Gara Regală Băneasa">
+                <p class="caption">Universitatea Națională de Apărare</p>
+            </div>
+            <div class="image">
+                <img src="poze/Statuia_ecvestra_a_Regelui_Carol_I.jpg" alt="Gara Regală Băneasa">
+                <p class="caption">Statuia ecvestră a Regelui Carol I</p>
+            </div>
+            <div class="image">
+                <img src="poze/CarolAlDoileaSiRegeleMihai.jpg" alt="Gara Regală Băneasa">
+                <p class="caption">Carol al II-lea și fiul său, viitorul Rege Mihai I</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container section">
+    <h1 id="mihai1">Mihai I</h1>
+    <br>
+    <br>
+    <br>
+    
+    <div class="carol-section">
+        <!-- Partea stângă: Text -->
+        <div class="carol-text">
+            <p>
+                Mihai I al României (1921-2017) a fost ultimul rege al României, având două domnii: prima în perioada 1927-1930, sub tutela unei regențe, și a doua între 1940 și 1947, când a fost forțat să abdice de regimul comunist. Destinul său a fost profund marcat de evenimentele istorice ale secolului al XX-lea, iar influența sa asupra României a continuat mult timp după exilul său.
+            </p>
+            <p>
+                Mihai a urcat pentru prima dată pe tron în 1927, la doar 6 ani, după moartea bunicului său, regele Ferdinand I, în condițiile renunțării tatălui său, Carol al II-lea, la drepturile succesorale. Deoarece era minor, conducerea țării a fost asigurată de o regență formată din principele Nicolae, patriarhul Miron Cristea și Gheorghe Buzdugan (ulterior Constantin Sărăescu). Totuși, regența s-a confruntat cu dificultăți politice și economice, iar în 1930, Carol al II-lea a revenit pe tron, iar Mihai a primit titlul de Mare Voievod de Alba Iulia, fiind exclus temporar din linia de succesiune.
+            </p>
+            <p>
+                A doua sa domnie a început în 1940, când Carol al II-lea a fost obligat să abdice în urma pierderilor teritoriale din acel an. Deși era regele României, în primii ani ai domniei sale puterea reală a fost deținută de mareșalul Ion Antonescu, conducătorul statului. Mihai a devenit o figură centrală a istoriei României în 23 august 1944, când a organizat lovitura de stat împotriva lui Antonescu, scoțând România din alianța cu Germania nazistă și alăturând-o forțelor Aliate. Acest act a accelerat sfârșitul războiului pe frontul de est și a fost apreciat de Aliați, deși, ulterior, nu a putut opri instaurarea regimului comunist.
+            </p>
+            <p>
+                După 1945, presiunile politice din partea Partidului Comunist Român, sprijinit de Uniunea Sovietică, au crescut. Regele Mihai a fost forțat să abdice la 30 decembrie 1947, sub amenințarea executării a 1.000 de tineri arestați de regimul comunist. Abdicarea sa a marcat sfârșitul monarhiei în România, iar țara a fost proclamată republică populară, intrând astfel în perioada totalitarismului comunist.
+            </p>
+            <p>
+                După abdicare, Mihai I a trăit cea mai mare parte a vieții sale în exil, stabilindu-se inițial în Elveția, dar având reședințe temporare și în alte țări occidentale. A fost nevoit să accepte diverse activități pentru a-și susține familia, printre care munca de pilot și fermier. În exil, regele Mihai a continuat să fie o voce critică la adresa regimului comunist, menținând legături cu exilul românesc și promovând cauza libertății și democrației pentru țara sa natală.
+            </p>
+            <p>
+                După Revoluția din 1989, Mihai I a revenit în România în mai multe rânduri, fiind primit cu entuziasm de populație, dar având relații tensionate cu autoritățile de la București până la mijlocul anilor '90. Prima sa întoarcere, în 1992, a atras sute de mii de oameni la București, ceea ce a determinat regimul de atunci să-i interzică accesul în țară pentru câțiva ani. Abia în 1997, după schimbarea conducerii politice, i s-a permis revenirea definitivă și i-au fost restituite o parte dintre proprietățile regale.
+            </p>
+            <p>
+                Pe parcursul anilor 2000, regele Mihai a devenit tot mai activ în viața publică, susținând aderarea României la NATO și Uniunea Europeană. A fost decorat de numeroase state pentru contribuția sa în Al Doilea Război Mondial, iar imaginea sa a fost reabilitată în ochii opiniei publice. A susținut valorile democrației și ale statului de drept, iar prezența sa a fost un simbol al continuității istorice a României.
+            </p>
+            <p>
+                Mihai I a fost recunoscut pentru demnitatea sa și pentru devotamentul față de poporul român. Până la moartea sa, în 2017, a rămas un reper moral pentru societatea românească, iar funeraliile sale au fost un moment de unitate națională. Prin destinul său tragic și curajul său politic, Mihai I a fost un simbol al istoriei moderne a României, lăsând în urma sa un exemplu de integritate și loialitate față de valorile democratice.
+            </p>
+            <div class="image">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/58Ofc_G3eIU?si=OTuBMatINMBVJCed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Fragment din filmul "Începutul Adevărului"(1993),în regia lui Sergiu Nicolaescu.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="carol-images">
+            <div class="image">
+                <img src="poze/RegeleMihai.jpg" alt="Mihai I">
+                <p class="caption">Regele Mihai I al României</p>
+            </div>
+            <div class="image">
+                <img src="poze/Regele-Mihai-I.jpg" alt="Abdicarea lui Mihai I">
+                <p class="caption">Regele Mihai I al României</p>
+            </div>
+            <div class="image">
+                <img src="poze/resize-of-1992-regele-mihai.jpg" alt="Revenirea în România">
+                <p class="caption">Revenirea regelui Mihai I în România, 1992</p>
+            </div>
+            <div class="image">
+                <img src="poze/Ceremonialul-funeraliilor-Regelui-Mihai-I-al-României-LIVE-7.jpg" alt="Funeraliile regelui Mihai">
+                <p class="caption">Ceremonialul funeraliilor regelui Mihai I, 2017</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container section">
+    <h1 id="bibliografie">Bibliografie</h1>
+    <div style="text-align: center;">
+        <h4>https://casamajestatiisale.ro/</h4>
+        <h4>https://www.romaniaregala.ro/</h4>
+        <h4>https://historia.ro/</h4>
+        <h4>Manualul propus pentru "ISTORIA MONARHIEI DIN ROMÂNIA", realizat de NICOLAE DIȚĂ, DORU DUMITRESCU și MIHAI MANEA</h4>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4>Proiect realizat de Baciu Robert, de la Colegiul Național "Ion Luca Caragiale", sub îndrumarea doamnei profesoare Băjenaru Carmen</h4>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+<script>
+    function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    hideNavigationBar(); // Ascunde bara după click
+    }
+
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        hideNavigationBar();
+    }
+
+    const navToggle = document.getElementById("nav-toggle");
+    const navigationBar = document.querySelector(".navigation-bar");
+
+    navToggle.addEventListener("click", () => {
+        navigationBar.classList.toggle("visible");
+        navToggle.style.display = "none";
+    });
+
+    function hideNavigationBar() {
+        navigationBar.classList.remove("visible");
+        navToggle.style.display = "flex";
+    }
+
+    window.addEventListener("scroll", hideNavigationBar);
+
+    document.addEventListener("click", (event) => {
+        if (!navigationBar.contains(event.target) && !navToggle.contains(event.target)) {
+            hideNavigationBar();
+        }
+    });
+</script>
+
+</body>
+</html>

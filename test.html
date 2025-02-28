@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test despre Monarhia României</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #3e3e3e;
+            background-color: #f4e9d8;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #5a3e36;
+        }
+        .question {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+        button {
+            background-color: #34495e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #40576b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test despre Monarhia României</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Cine a fost primul rege al României?</p>
+                <input type="radio" name="q1" value="a"> Carol I<br>
+                <input type="radio" name="q1" value="b"> Ferdinand I<br>
+                <input type="radio" name="q1" value="c"> Mihai I<br>
+            </div>
+            <div class="question">
+                <p>2. În ce an a devenit România regat?</p>
+                <input type="radio" name="q2" value="a"> 1866<br>
+                <input type="radio" name="q2" value="b"> 1881<br>
+                <input type="radio" name="q2" value="c"> 1918<br>
+            </div>
+            <div class="question">
+                <p>3. Cine a fost ultimul rege al României?</p>
+                <input type="radio" name="q3" value="a"> Carol al II-lea<br>
+                <input type="radio" name="q3" value="b"> Mihai I<br>
+                <input type="radio" name="q3" value="c"> Ferdinand I<br>
+            </div>
+            <div class="question">
+                <p>4. Cine a înfăptuit Marea Unire?</p>
+                <input type="radio" name="q4" value="a"> Carol I<br>
+                <input type="radio" name="q4" value="b"> Ferdinand I<br>
+                <input type="radio" name="q4" value="c"> Mihai I<br>
+            </div>
+            <div class="question">
+                <p>5. Care a fost deviza Casei Regale a României?</p>
+                <input type="radio" name="q5" value="a"> Nihil Sine Deo<br>
+                <input type="radio" name="q5" value="b"> Învingem împreună<br>
+                <input type="radio" name="q5" value="c"> Unitate și Credință<br>
+            </div>
+            <div class="question">
+                <p>6. Care rege a avut cea mai lungă domnie?</p>
+                <input type="radio" name="q6" value="a"> Carol I<br>
+                <input type="radio" name="q6" value="b"> Ferdinand I<br>
+                <input type="radio" name="q6" value="c"> Carol al II-lea<br>
+            </div>
+            <div class="question">
+                <p>7. În ce an a fost abolita monarhia în România?</p>
+                <input type="radio" name="q7" value="a"> 1947<br>
+                <input type="radio" name="q7" value="b"> 1938<br>
+                <input type="radio" name="q7" value="c"> 1965<br>
+            </div>
+            <div class="question">
+                <p>8. Cine a fost regele României la Începutul Primului Război Mondial?</p>
+                <input type="radio" name="q8" value="a"> Carol I<br>
+                <input type="radio" name="q8" value="b"> Ferdinand I<br>
+                <input type="radio" name="q8" value="c"> Mihai I<br>
+            </div>
+            <div class="question">
+                <p>9. Ce rege a adoptat prima Constituție a României?</p>
+                <input type="radio" name="q9" value="a"> Carol I<br>
+                <input type="radio" name="q9" value="b"> Ferdinand I<br>
+                <input type="radio" name="q9" value="c"> Mihai I<br>
+            </div>
+            <div class="question">
+                <p>10. Cine a fost regele României în timpul celui de-al Doilea Război Mondial?</p>
+                <input type="radio" name="q10" value="a"> Carol al II-lea<br>
+                <input type="radio" name="q10" value="b"> Mihai I<br>
+                <input type="radio" name="q10" value="c"> Ferdinand I<br>
+            </div>
+            <button type="button" onclick="checkAnswers()">Verifică răspunsurile</button>
+        </form>
+        <p id="result"></p>
+        <button onclick="location.href='index.html'" style="margin-top: 20px; background-color: #2c3e50; color: white; padding: 10px 20px; font-size: 1rem; border-radius: 5px; cursor: pointer;">Înapoi la lecție</button>
+
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let correctAnswers = {q1: "a", q2: "b", q3: "b", q4: "b", q5: "a", q6: "a", q7: "a", q8: "b", q9: "a", q10: "b"};
+            let score = 0;
+            let form = document.getElementById('quizForm');
+            let resultText = document.getElementById('result');
+            
+            for (let key in correctAnswers) {
+                let selected = form.elements[key].value;
+                if (selected === correctAnswers[key]) {
+                    score++;
+                }
+            }
+            
+            resultText.innerHTML = `Ai răspuns corect la ${score} din 10 întrebări!`;
+        }
+    </script>
+</body>
+</html>
